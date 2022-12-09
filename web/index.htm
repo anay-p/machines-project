@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mini Project</title>
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico" sizes="128x128">
+    </head>
+    <body>
+        <div id="page1">
+            <div class="heading1">
+                WELCOME
+            </div>
+            <div class="text">
+                This is a tool that predicts the shape of the induced emf across the phase windings of a single or multi-phase AC generator based on the machine details and the waveform of space variation of flux density provided.
+            </div>
+            <div id="selectText" class="heading2">
+                Please select a file containing your flux density plot:
+            </div>
+            <div id="inputPlot" class="plot"></div>
+            <div class="buttonDiv">
+                <button id="selectImageButton" class="button">SELECT IMAGE</button>
+                <button id="selectCSVButton" class="button">SELECT CSV FILE</button>
+                <button id="continueButton" class="button" disabled>CONTINUE</button>
+            </div>
+            <div class="warning">
+                <div id="warning1">
+                    The accepted image file types are JPEGs and PNGs. Please make sure that the only coloured element in your image is the plot itself. The other elements of the image must be in grayscale. <span id="exampleText" class="exampleText">Examples.</span>
+                </div>
+                <div id="warning2" style="display: none;">
+                    The CSV file must contain either only the y values or both the x and y values. (Only the y values are needed.) The delimiter must be a comma (,). The columns may have titles. If you use MS Excel to create a CSV file, please make sure to save it as a 'CSV (Comma delimited) (*.csv)' file only.
+                </div>
+            </div>
+            <div class="examplePopup">
+                <table>
+                    <tr>
+                        <td><img class="exampleImage" src="images/example1.png" height="220" wclassth="400" alt="Example 1"></td>
+                        <td><img class="exampleImage" src="images/example2.png" height="220" wclassth="400" alt="Example 2"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="page2" style="display: none;">
+            <div class="heading2">
+                Please enter your machine's details:
+            </div>
+            <form action="javascript:handleData();">
+                <table id="formTable">
+                    <tr>
+                        <td class="td1">
+                            <label for="noOfPhases">No. of phases: </label>
+                        </td>
+                        <td class="td2">
+                            <input type="number" id="noOfPhases" min="1" max="999999999999999"><span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1">
+                            <label for="noOfSlots">No. of slots: </label>
+                        </td>
+                        <td class="td2">
+                            <input type="number" id="noOfSlots" min="1" max="999999999999999"><span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1">
+                            <label for="noOfPoles">No. of poles: </label>
+                        </td>
+                        <td class="td2">
+                            <input type="number" id="noOfPoles" min="2" max="999999999999998" step="2"><span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1">
+                            <label for="chordedSlots">No. of slots the winding is chorded by: </label>
+                        </td>
+                        <td class="td2">
+                            <input type="number" id="chordedSlots" min="0" max="999999999999999" step="1"><span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1">
+                            <button type="button" id="backButton" class="button" style="margin-top: 10px;">BACK</button>
+                        </td>
+                        <td class="td2">
+                            <input type="submit" id="genPlotButton" class="button" value="GENERATE PLOT" style="margin-top: 10px;">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <div id="dynWarning" class="warning" style="text-align: center;">
+                It is assumed that the windings are narrow spread.
+            </div>
+            <div id="outputPlot" class="plot"></div>
+            <div id="exitButtonDiv" class="buttonDiv" style="display: none; padding-bottom: 0px;">
+                <button id="exitButton" class="button">EXIT</button>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/d3.js"></script>
+        <script type="text/javascript" src="js/mpld3.js"></script>
+        <script type="text/javascript" src="eel.js"></script>
+    </body>
+</html>

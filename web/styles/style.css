@@ -1,0 +1,148 @@
+@font-face {
+    font-family: Montserrat;
+    src: url("/fonts/montserrat.ttf");
+}
+
+body {
+    background-color: #F7F0F0;
+    font-family: Montserrat, sans-serif;
+    color: #484349;
+}
+
+.heading1 {
+    text-align: center;
+    font-size: 50px;
+    font-variation-settings: 'wght' 700;
+    padding-bottom: 10px;
+}
+
+.text {
+    text-align: justify;
+    font-size: 18px;
+    padding: 0px 25px 10px 25px;
+    font-variation-settings: 'wght' 600;
+}
+
+.heading2 {
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 10px;
+    font-variation-settings: 'wght' 600;
+}
+
+.buttonDiv {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.warning {
+    color: #FF1B1C;
+    text-align: justify;
+    font-size: 15px;
+    padding: 0px 25px 10px 25px;
+}
+
+.plot {
+    display: none;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.plot > div > svg {
+    background-color: #D7D5D8;
+    border-radius: 10px;
+}
+
+.plot .mpld3-text {
+    font-weight: bold;
+    translate: 0px -8px;
+}
+
+.exampleText {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.examplePopup {
+    background-color: #484349;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    position: absolute;
+    display: none;
+    opacity: 1.0;
+}
+
+.examplePopup::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #2C4E49 transparent transparent transparent;
+}
+
+.exampleImage {
+    vertical-align: middle;
+}
+
+.button {
+    font-size: 25px;
+    border: none;
+    padding: 7px 20px 4px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #7C9082;
+    transition: color 0.3s, background-color 0.3s, transform 0.05s;
+    color: inherit;
+    margin: 0px 20px 0px 20px;
+    font-weight: bold;
+    width: 260px;
+}
+
+.button:hover:enabled {
+    background-color: #546359;
+    color: #343135;
+}
+
+.button:active:enabled {
+    transform: translateY(2px);
+}
+
+.button:disabled {
+    background-color: #AFAFAF;
+    color: #6E6E6E;
+    cursor: not-allowed;
+}
+
+#formTable {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 10px;
+}
+
+.td1 {
+    text-align: right;
+    padding-right: 3px;
+}
+
+.td2 {
+    text-align: left;
+    padding-left: 3px;
+}
+
+input[type="number"] {
+    width: 300px;
+}
+
+input:invalid + span::after {
+    content: "⚠";
+    color: #FF1B1C;
+    position: relative;
+    left: 4px;
+    top: 1px;
+}
