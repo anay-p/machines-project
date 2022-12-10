@@ -113,7 +113,7 @@ if chrome_exists:
             harm_dict = {}
             for harmonic in range(1, harmonics.shape[0], 2):
                 amplitude = harmonics[harmonic]
-                if amplitude > 0.01:
+                if amplitude > 0.05:
                     harm_dict[harmonic] = amplitude
             return harm_dict
 
